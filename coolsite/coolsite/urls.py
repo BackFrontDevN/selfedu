@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 from coolsite import settings
 from women.views import *
@@ -25,6 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('main/', include('women.urls')),
     path('', include('women.urls')),
+    path('api/v1/', include('api.urls')),
 ]
 
 if settings.DEBUG:
